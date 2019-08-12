@@ -11,7 +11,7 @@ import time as TIME
 
 print("capturing screen and doing work.....")
 while 1:
-	TIME.sleep(1)
+	TIME.sleep(3)
 
 	floor_num = ImageGrab.grab(bbox=(744,414,797,436))    #grabs a screenshot of floor
 	image_np = np.array(floor_num)
@@ -48,8 +48,15 @@ while 1:
 	winterface = [floor,bon,time,mod]
 	print(winterface)
 	line = winterface[0] + ' ' + winterface[1]+ ' ' + winterface[2] + ' '+ winterface[3] + '\n'
+	blank_line = True
 
-	log = open("log.txt",'a+')
-	log.write(line)
-	log.close()
+	for i in line:
+		if i != ' ':
+			blank_line = False
+
+	if blank_line == False:
+		log = open("log.txt",'a+')
+		log.write(line)
+		log.close()
+		blank_line = True
 input()
