@@ -9,12 +9,14 @@ import pytesseract
 import time as TIME
 
 
+
 print("capturing screen and doing work.....")
 while 1:
 	TIME.sleep(3)
 
 	floor_num = ImageGrab.grab(bbox=(744,414,797,436))    #grabs a screenshot of floor
 	image_np = np.array(floor_num)
+	TIME.sleep(0.5)
 
 	bon_num = ImageGrab.grab(bbox=(1000,497,1035,522))    #grabs a screenshot bon %
 	image_np2 = np.array(bon_num)
@@ -32,10 +34,12 @@ while 1:
 	inv_mod = cv2.bitwise_not(image_np4)
 
 
+	
 	cv2.imwrite('flr.png',inv_flr)
 	cv2.imwrite('bon.png',inv_bon)
 	cv2.imwrite('time.png',inv_time)
 	cv2.imwrite('mod.png',inv_mod)
+	
 
 
 
@@ -46,13 +50,14 @@ while 1:
 
 
 	winterface = [floor,bon,time,mod]
-	print(winterface)
-	line = winterface[0] + ' ' + winterface[1]+ ' ' + winterface[2] + ' '+ winterface[3] + '\n'
+	#print(winterface)
+	line = winterface[0] + ' ' + winterface[1]+ ' ' + winterface[2] + ' ' + winterface[3]+'\n'
 	blank_line = True
 
-	for i in line:
-		if i != ' ':
+	if len(line) > 18:
 			blank_line = False
+			print('successfully captured a floor winterface!')
+			print(winterface)
 
 	if blank_line == False:
 		log = open("log.txt",'a+')
