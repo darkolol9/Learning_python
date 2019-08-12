@@ -4,7 +4,6 @@ from PIL import ImageGrab
 
 
 print("this is a Github commit test...")
-print("yes")
 
 img = ImageGrab.grab()    #grabs a screenshot
 #img_np = np.array(img)   //transforms the image into a format that cv can accept (an array of pixels)
