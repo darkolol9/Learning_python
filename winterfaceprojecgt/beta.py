@@ -7,11 +7,14 @@ import time as TIME
 from matplotlib import pyplot as plt
 import cv2
 import numpy as np
+from datetime import date
 
 max_detect_allowed = 1709208576.0
 
 tmpl = cv2.imread('newtmp.png')  #get the template ready as cv2
 #test run
+
+today = date.today()
 
 
 
@@ -69,7 +72,8 @@ while 1:
 
 		winterface = [floor,bon,time,mod]
 		#print(winterface)
-		line = winterface[0] + ' ' + winterface[1]+ ' ' + winterface[2] + ' ' + winterface[3]+'\n'
+		d1 = today.strftime("%d/%m/%Y")
+		line = winterface[0] + ' ' + winterface[1]+ ' ' + winterface[2] + ' ' + winterface[3]+' '+ d1 + '\n'
 		blank_line = True
 
 		if len(line) > 0:
@@ -78,6 +82,7 @@ while 1:
 			print(winterface)
 
 		if blank_line == False:
+
 			log = open("log.txt",'a+')
 			log.write(line)
 			log.close()
