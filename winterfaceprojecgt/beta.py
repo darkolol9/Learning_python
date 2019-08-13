@@ -38,9 +38,9 @@ while 1:
 		print('detected winterface!  \n')
 		#now we need to crop the parts we need and run text detection
 
-		floor_num = ImageGrab.grab(bbox=(max_loc[0]+41,max_loc[1]+74,max_loc[0]+94,max_loc[1]+96))
+		floor_num = ImageGrab.grab(bbox=(max_loc[0]+41,max_loc[1]+56,max_loc[0]+94,max_loc[1]+78))
 		bon_num = ImageGrab.grab(bbox=(max_loc[0]+297,max_loc[1]+157,max_loc[0]+332,max_loc[1]+182))
-		time_num = ImageGrab.grab(bbox=(max_loc[0]+29,max_loc[1]+323,max_loc[0]+82,max_loc[1]+348))
+		time_num = ImageGrab.grab(bbox=(max_loc[0]+34,max_loc[1]+300,max_loc[0]+82,max_loc[1]+321))
 		mod_num = ImageGrab.grab(bbox=(max_loc[0]+297,max_loc[1]+178,max_loc[0]+329,max_loc[1]+200))
 
 		image_np = np.array(floor_num)
